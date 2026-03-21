@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function PrivateRoute({ children }: Props) {
-  const { currentUser } = useAuth();
-  if (!currentUser) return <Navigate to="/login" />;
+  const { hasAccess } = useAuth();
+  if (!hasAccess) return <Navigate to="/login" replace />;
   return <>{children}</>;
 }

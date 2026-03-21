@@ -1,4 +1,5 @@
-# parser.py
+# telegram-crawler/parser.py
+
 import re
 
 def parse_movie_message(message_text):
