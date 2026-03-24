@@ -17,22 +17,23 @@ function Layout({ children }: { children: React.ReactNode }) {
   const { theme } = useTheme();
 
   return (
-    <div className={`app-container ${theme}`} style={{
-      minHeight: "100vh",
-      backgroundImage: `var(--bg-image-overlay), url(${BG_IMAGE_URL})`,
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed",
-      backgroundPosition: "center",
-      color: "var(--text-color)"
-    }}>
+    <div
+      className={`app-container ${theme}`}
+      style={{
+        minHeight: "100vh",
+        backgroundImage: `var(--bg-image-overlay), url(${BG_IMAGE_URL})`,
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        color: "var(--text-color)",
+      }}
+    >
       {/* Fixed Logo Example */}
-      <div style={{ position: "fixed", top: "20px", left: "20px", zIndex: 1100 }}>
-         <h2 style={{ color: "var(--accent-color)", margin: 0, fontWeight: "bold", textShadow: "2px 2px 4px #000" }}>T-Stream</h2>
+      <div className="app-logo-fixed">
+        <h2 className="app-logo-text">T-Stream</h2>
       </div>
       <Navbar />
-      <div style={{ paddingTop: "80px" }}>
-        {children}
-      </div>
+      <div className="app-content">{children}</div>
     </div>
   );
 }

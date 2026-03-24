@@ -6,6 +6,7 @@ import GenreSection from "../components/GenreSection/GenreSection";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
 import { Movie } from "../types/Movie";
 import { useBackButton } from "../hooks/useBackButton";
+import "./Home.css";
 
 const TMDB_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -62,62 +63,37 @@ const Home = () => {
   return (
     <>
       <HeroBanner />
-      <div style={{ padding: "30px 40px", minHeight: "100vh", position: "relative" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "30px" }}>
-        <h1 style={{ margin: 0, fontSize: "2.5rem" }}>Discover</h1>
-        
-        <div style={{ position: "relative", width: "400px", maxWidth: "100%", zIndex: 1000 }}>
-          <SearchBar value={searchQuery} onSearch={handleSearch} />
+      <div className="home-page">
+        <div className="home-top">
+          <h1 className="home-title">Discover</h1>
 
-        {autocompleteResults.length > 0 && (
-          <div
-            style={{
-              position: "absolute",
-              top: "100%",
-              left: 0,
-              width: "100%",
-              backgroundColor: "var(--bg-secondary)",
-              border: "1px solid var(--border-color)",
-              borderRadius: "8px",
-              maxHeight: "350px",
-              overflowY: "auto",
-              boxShadow: "var(--card-shadow)",
-              marginTop: "5px"
-            }}
-          >
-            {autocompleteResults.map((item: any) => (
-              <div
-                key={`${item.media_type}-${item.id}`}
-                onClick={() => handleSelectMovie(item.id, item.media_type)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "10px",
-                  cursor: "pointer",
-                  borderBottom: "1px solid var(--border-color)",
-                  color: "var(--text-primary)",
-                  transition: "background-color 0.2s"
-                }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "var(--border-color)")}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
-              >
+          <div className="home-searchWrap">
+            <SearchBar value={searchQuery} onSearch={handleSearch} />
+
+            {autocompleteResults.length > 0 && (
+              <div className="home-results">
+                {autocompleteResults.map((item: any) => (
+                  <div
+                    key={`${item.media_type}-${item.id}`}
+                    onClick={() => handleSelectMovie(item.id, item.media_type)}
+                    className="home-resultItem"
+                  >
                 {item.poster_path ? (
                   <img
                     src={`https://image.tmdb.org/t/p/w92${item.poster_path}`}
                     alt={item.title}
-                    style={{ width: "40px", borderRadius: "4px" }}
+                    className="home-resultPoster"
                   />
                 ) : (
-                  <div style={{ width: "40px", height: "60px", backgroundColor: "#333", borderRadius: "4px" }}></div>
+                  <div className="home-resultPosterFallback"></div>
                 )}
                 <span>{item.title}</span>
               </div>
-            ))}
+                ))}
+              </div>
+            )}
           </div>
-        )}
         </div>
-      </div>
 
       <GenreSection  
         title="Action Movies" 

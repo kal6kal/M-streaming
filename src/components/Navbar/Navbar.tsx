@@ -9,8 +9,8 @@ export default function Navbar() {
   return (
     <nav>
       {/* Intentionally left empty to allow App.tsx global fixed logo room */}
-      <div style={{ paddingLeft: "150px" }}></div>
-      <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+      <div className="navbar-logo-spacer"></div>
+      <div className="navbar-actions">
         
         <button onClick={toggleTheme} className="theme-toggle-btn">
           {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
