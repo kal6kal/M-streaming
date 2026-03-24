@@ -28,10 +28,6 @@ function Layout({ children }: { children: React.ReactNode }) {
         color: "var(--text-color)",
       }}
     >
-      {/* Fixed Logo Example */}
-      <div className="app-logo-fixed">
-        <h2 className="app-logo-text">T-Stream</h2>
-      </div>
       <Navbar />
       <div className="app-content">{children}</div>
     </div>

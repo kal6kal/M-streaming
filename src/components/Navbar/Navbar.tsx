@@ -8,8 +8,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      {/* Intentionally left empty to allow App.tsx global fixed logo room */}
-      <div className="navbar-logo-spacer"></div>
+      <Link to="/" className="navbar-brand">T-Stream</Link>
       <div className="navbar-actions">
         
         <button onClick={toggleTheme} className="theme-toggle-btn">

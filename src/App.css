@@ -68,14 +68,20 @@ nav a:hover {
   opacity: 0.8;
 }
 
-.navbar-logo-spacer {
-  padding-left: 150px;
+.navbar-brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--accent-color);
+  white-space: nowrap;
 }
 
 .navbar-actions {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 /* Base button */
@@ -191,22 +197,8 @@ input:focus {
   100% { transform: scale(1.1); }
 }
 
-.app-logo-fixed {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-}
-
-.app-logo-text {
-  color: var(--accent-color);
-  margin: 0;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px #000;
-}
-
 .app-content {
-  padding-top: 80px;
+  padding-top: 92px;
 }
 
 @media (max-width: 900px) {
@@ -214,46 +206,35 @@ input:focus {
     padding: 0.8rem 1rem;
   }
 
-  .app-logo-fixed {
-    top: 12px;
-    left: 12px;
-  }
-
-  .app-logo-text {
-    font-size: 1.05rem;
-  }
-
-  .navbar-logo-spacer {
-    padding-left: 95px;
+  .navbar-brand {
+    font-size: 1.1rem;
   }
 
   .navbar-actions {
     gap: 12px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    font-size: 0.95rem;
+  }
+
+  .app-content {
+    padding-top: 86px;
   }
 }
 
 @media (max-width: 640px) {
   nav {
     flex-wrap: wrap;
-    gap: 10px;
-    align-items: flex-start;
+    gap: 8px 12px;
+    align-items: center;
   }
 
   .app-content {
-    padding-top: 108px;
-  }
-
-  .navbar-logo-spacer {
-    padding-left: 0;
-    display: none;
+    padding-top: 126px;
   }
 
   .navbar-actions {
     width: 100%;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 8px 12px;
   }
 
   button {
