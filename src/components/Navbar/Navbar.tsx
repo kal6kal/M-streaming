@@ -16,7 +16,7 @@ export default function Navbar() {
           {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
         </button>
 
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         {currentUser && <Link to="/fav">Favorites</Link>}
         
         {currentUser ? (
